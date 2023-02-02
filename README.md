@@ -19,4 +19,4 @@ To start to use this program, need to do the following steps:
 
 - Start by running "npm install prompt" in the root directory
 
-- To run the CLI : ype "node shell.js" 
+- To run the CLI : type "node shell.js" 
