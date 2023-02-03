@@ -13,6 +13,8 @@ The code uses the inquirer, child_process, and readline libraries. The following
 
 The code runs in an infinite loop and repeatedly prompts the user to enter a command, which is then executed and the output is displayed on the console.
 
+Make sure to have the version 16 or latest of node JS. You can download the version 16 on Ubuntu with 'curl -s https://deb.nodesource.com/setup_16.x | sudo bash'
+  
 To start to use this program, need to do the following steps:
 
 - Download the three files and put them in the same directory
