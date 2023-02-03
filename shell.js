@@ -1,7 +1,6 @@
 import inquirer from "inquirer";
 import { exec, execSync, spawn } from 'child_process'
 import * as readline from 'readline'
-import { lstat } from "fs";
 
 //Exit shell with 'CTRl-P'
 const rl = readline.createInterface({
@@ -104,7 +103,7 @@ while (true) {
             console.error(`Error: ${err}`);
             return;
           }
-          console.log(`Process ${PID} a été détaché.`);
+          console.log(`Process ${PID} detached`);
         });
       }
 
@@ -112,18 +111,20 @@ while (true) {
       let new_command;
       if (command.endsWith('!')) {
         new_command = command.slice(0, -1);
+      }else {
+        try {
+          exec(command, { stdio: 'ignore' });
+        }catch (err) {
+          console.log("Please give right command")
+        }
       }
       exec(`${new_command} &`, { detached: true }, (error, stdout, stderr) => {
         if (error) {
           console.error(`exec error: ${error}`);
           return;
         }
-        console.log(`stdout: ${stdout}`);
-        console.error(`stderr: ${stderr}`);
       });
-      
-
-      console.info('Answer:', answer.command);
+ 
     })
     .catch(err => console.error(err))
 }
