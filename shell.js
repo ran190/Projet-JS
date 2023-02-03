@@ -109,20 +109,19 @@ while (true) {
       }
 
       //Background
-      else {
-        let new_command;
-        if (command.endsWith('!')) {
-          new_command = command.slice(0, -1);
-        }
-        exec(`${new_command} &`, { detached: true }, (error, stdout, stderr) => {
-          if (error) {
-            console.error(`exec error: ${error}`);
-            return;
-          }
-          console.log(`stdout: ${stdout}`);
-          console.error(`stderr: ${stderr}`);
-        });
+      let new_command;
+      if (command.endsWith('!')) {
+        new_command = command.slice(0, -1);
       }
+      exec(`${new_command} &`, { detached: true }, (error, stdout, stderr) => {
+        if (error) {
+          console.error(`exec error: ${error}`);
+          return;
+        }
+        console.log(`stdout: ${stdout}`);
+        console.error(`stderr: ${stderr}`);
+      });
+      
 
       console.info('Answer:', answer.command);
     })
