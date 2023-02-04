@@ -4,12 +4,15 @@ This code is a shell program that allows users to run various commands, manage p
 
 The code uses the inquirer, child_process, and readline libraries. The following functionality is implemented:
 
-- Exiting shell with 'CTRL-P'
-- Listing of all running processes with the 'lp' command
-- Stopping, killing, or continuing a process with the 'bing [-k|-p|-c] <processId>' command
-- Running a program or shell command with path (in single quotes)
-- Detaching a process with the 'keep <PID>' command
-- Running a command in the background by ending it with an exclamation mark (!).
+The valid commands :
+
+Ctrl+p : Exiting shell with 'CTRL-P'
+lp : Listing of all running processes with the 'lp' command
+bing [-k|-p|-c] <PID> : Stopping, killing, or continuing a process with the 'bing [-k|-p|-c] <PID>' command
+keep <PID> : Detaching a process with the 'keep <PID>' command
+
+To run a program or shell command with path, make sure that the path is in single quotes
+To run a command in the background, make sure to add an exclamation mark (!) at the end of the command
 
 The code runs in an infinite loop and repeatedly prompts the user to enter a command, which is then executed and the output is displayed on the console.
 
