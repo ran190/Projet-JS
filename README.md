@@ -8,17 +8,17 @@ The code uses the inquirer, child_process, and readline libraries. The following
 
 The valid commands :
 
-Ctrl+p : Exiting shell
+_Ctrl+p_ : Exiting shell
 
-lp : Listing of all running processes
+_lp_ : Listing of all running processes
 
-bing [-k|-p|-c] <PID> : Stopping, killing, or continuing a process
+_bing [-k|-p|-c] <PID>_ : Stopping, killing, or continuing a process
 
-keep <PID> : Detaching a process
+_keep <PID>_ : Detaching a process
+  
+_<name_program> !_ : Run a command/program in the background
 
 To run a program or shell command with path, make sure that the path is correct.
-
-To run a command in the background, make sure to add an exclamation mark (!) at the end of the command
 
 The code runs in an infinite loop and repeatedly prompts the user to enter a command, which is then executed and the output is displayed on the console.
 
@@ -38,15 +38,15 @@ This code is another test of a shell program. It manages the modifications of th
 
 The valid commands :
 
-lp : Listing of all running processes
+_lp_ : Listing of all running processes
 
-cd : Change the current directory, to the previous one, a next one... (example : /mnt/c/../c/.. is correctly managed)
+_cd_ : Change the current directory, to the previous one, a next one... (example : /mnt/c/../c/.. is correctly managed)
 
-bing [-k|-p|-c] <PID> : Stopping, killing, or continuing a process
+_bing [-k|-p|-c] <PID>_ : Stopping, killing, or continuing a process
 
-keep <PID> : Detaching a process with the 'keep <PID>' command (we're having some issues with this one as the processes don't stay in background as soon as we close the terminal which was launching them, but we managed to put them in background with the `nohup <command> &` command)
+_keep <PID>_ : Detaching a process with the 'keep <PID>' command (we're having some issues with this one as the processes don't stay in background as soon as we close the terminal which was launching them, but we managed to put them in background with the `nohup <command> &` command)
 
-<name_program> ! : Run a command in the background
+_<name_program> !_ : Run a command in the background
 
 all the other bash/sh commands are also available and managed
 
