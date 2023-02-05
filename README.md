@@ -1,8 +1,9 @@
 # Projet-JS
 
 This code is a shell program in JavaScript that allows users to run various commands, manage processes, and list the currently running processes. 
+The code uses the inquirer, child_process, and readline libraries.
 
-The code uses the inquirer, child_process, and readline libraries. The following functionality is implemented:
+## Functionalities
 
 The valid commands :
 
