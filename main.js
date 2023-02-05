@@ -1,6 +1,6 @@
 const { exec } = require('node:child_process');
 
-let PATH_FOR_COMMAND = "/home";
+let PATH_FOR_COMMAND = "/";
 
 /* EVENT LISTENERS */
 process.stdin.on('data', inputHandler);
@@ -36,7 +36,7 @@ function executeCommand(commandStr) {
 
     else if(command == "bing") {
         if(args.length < 2) {
-            process.stderr.write("Nope.");
+            process.stderr.write("Address missing");
             printPrompt();
             return;
         }
@@ -49,7 +49,18 @@ function executeCommand(commandStr) {
     }
 
     else if(command == 'keep') {
-        commandStr = `bash; nohup %${args[0]} &`
+        commandStr = `bash; nohup %${args[0]} &`;
+    }
+
+    else if(command == 'help') {
+        console.log("The commands are :");
+        console.log("lp : list of processus");
+        console.log("bing [-k|-p|-c] <processId>: to kill, pause and resume a process");
+        console.log("name_program + !: execute a process in background");
+        console.log("keep + num PID : detach the corresponding process from the CLIi");
+        console.log("Any bash command is also available\n");
+        printPrompt();
+        return;
     }
 
     exec(`cd ${PATH_FOR_COMMAND}; ${commandStr}`, (error, stdout, stderr) => {
