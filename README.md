@@ -14,7 +14,7 @@ bing [-k|-p|-c] <PID> : Stopping, killing, or continuing a process with the 'bin
 
 keep <PID> : Detaching a process with the 'keep <PID>' command
 
-To run a program or shell command with path, make sure that the path is in single quotes
+To run a program or shell command with path, make sure that the path is correct.
 
 To run a command in the background, make sure to add an exclamation mark (!) at the end of the command
 
