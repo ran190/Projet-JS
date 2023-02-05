@@ -26,11 +26,11 @@ The code runs in an infinite loop and repeatedly prompts the user to enter a com
 
 To start to use this program, you need to follow these steps:
 
-- Download the  `package-lock.json`, `package.json` and `shell.js` files and put them in the same directory
+* Download the  `package-lock.json`, `package.json` and `shell.js` files and put them in the same directory
 
-- Run `npm install prompt` in the root directory to install the corresponding librairy
+* Run `npm install prompt` in the root directory to install the corresponding librairy
 
-- To run the CLI : type `node shell.js`
+* To run the CLI : type `node shell.js`
 
 ## main.js
 
@@ -54,7 +54,13 @@ The code is infinitly waiting for incomming data from the terminal (`process.std
 
 ### Launching this code
 
-To start to use this program, you just need to run `node main.js` in a Linux terminal opened in the repository where you've download this file.
+To start to use this program, you need to follow these steps :
+
+* download the `Main.js` file
+
+* open a Linux terminal in the repository of the downloaded file
+
+* run `node main.js`
 
 ## Required configuration
 
