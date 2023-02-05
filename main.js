@@ -54,6 +54,7 @@ function executeCommand(commandStr) {
 
     else if(command == 'help') {
         console.log("The commands are :");
+        console.log("cd : change current directory");
         console.log("lp : list of processus");
         console.log("bing [-k|-p|-c] <processId>: to kill, pause and resume a process");
         console.log("name_program + !: execute a process in background");
