@@ -24,17 +24,16 @@ while (true) {
     .prompt([
       {
         name: 'command',
-        message: 'Enter command: ',
+        message: ' ',
       },
     ])
     .then(answer => {
       const command = answer.command;
       const args = command.split(' ');
-      let detachedProcesses = [];
 
       //Listing
       if (command === 'lp') {
-        exec('ps a', (error, stdout, stderr) => {
+        exec('ps -a', (error, stdout, stderr) => {
           if (error) {
             console.error(`exec error: ${error}`);
             return;
@@ -51,6 +50,7 @@ while (true) {
             }
           }
         });
+        return;
       }
 
       //Voir Option pour bing [-k|-p|-c] <processId>
@@ -75,12 +75,13 @@ while (true) {
           default:
             console.log("Invalid action. Use -k, -p, or -c.");
         }
+        return;
       }
 
       //Path
-      if (command.match('([^\']+)')){
-        console.log(command);
-        const program = spawn('bash',[command]);
+      if (args.length > 0 && args[0] === 'path'){
+        const path = args[1];
+        const program = spawn('bash',[path]);
   
         program.stdout.on('data', (data) => {
           console.log(` ${data}`);
@@ -93,6 +94,7 @@ while (true) {
         program.on('close', (code) => {
           console.log(`shell progress exited with code ${code}`);
         }); 
+        return;
       }
 
       //Detaching 
@@ -105,6 +107,7 @@ while (true) {
           }
           console.log(`Process ${PID} detached`);
         });
+        return;
       }
 
       //Background
@@ -113,7 +116,12 @@ while (true) {
         new_command = command.slice(0, -1);
       }else {
         try {
-          exec(command, { stdio: 'ignore' });
+          exec(command,(error,stdout,stderr) => {
+            if (error){
+              console.error('exec error : ${error}');
+              return;
+            }
+          });
         }catch (err) {
           console.log("Please give right command")
         }
