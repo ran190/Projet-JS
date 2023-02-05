@@ -26,9 +26,9 @@ The code runs in an infinite loop and repeatedly prompts the user to enter a com
 
 To start to use this program, you need to follow these steps:
 
-- Download the  `package-lock.json`, `package.json` and `shell.js` and put them in the same directory
+- Download the  `package-lock.json`, `package.json` and `shell.js` files and put them in the same directory
 
-- Start by running `npm install prompt` in the root directory
+- Run `npm install prompt` in the root directory to install the corresponding librairy
 
 - To run the CLI : type `node shell.js`
 
@@ -50,7 +50,7 @@ _<name_program> !_ : Run a command in the background
 
 all the other bash/sh commands are also available and managed
 
-The code is infinitly waiting for incomming data from the terminal.
+The code is infinitly waiting for incomming data from the terminal (`process.stdin.on()`). This is causing issues to implement the Ctrl+P required command as the program isn't waiting for just one keyboard key to be pressed. If so, each key pressed will try to launch a command, which will be impossible to manage to read string from the terminal.
 
 ### Launching this code
 
@@ -58,6 +58,6 @@ To start to use this program, you just need to run `node main.js` in a Linux ter
 
 ## Required configuration
 
-Make sure to have the version 16 or latest of node JS. You can download the version 16 on Ubuntu with `curl -s https://deb.nodesource.com/setup_16.x | sudo bash` or `sudo apt install nodejs`
+Make sure to have the version 16 or latest of NodeJS. You can download the version 16 on Ubuntu with `curl -s https://deb.nodesource.com/setup_16.x | sudo bash` or `sudo apt install nodejs`
 
 These codes need to be used in Linux.
