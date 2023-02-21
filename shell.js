@@ -2,6 +2,7 @@ import inquirer from "inquirer";
 import { exec, execSync, spawn } from 'child_process'
 import * as readline from 'readline'
 
+
 //Exit shell with 'CTRl-P'
 const rl = readline.createInterface({
   input: process.stdin,
@@ -126,12 +127,18 @@ while (true) {
           console.log("Please give right command")
         }
       }
-      exec(`${new_command} &`, { detached: true }, (error, stdout, stderr) => {
+      spawn(cmd, args, {
+        stdio: 'ignore', // piping all stdio to /dev/null
+        detached: true,
+        env: process.env,
+      }).unref();
+      /* exec(`${new_command} &`, { detached: true }, (error, stdout, stderr) => {
         if (error) {
           console.error(`exec error: ${error}`);
           return;
         }
-      });
+        console.log(`stdout: ${stdout}`);
+      }); */
  
     })
     .catch(err => console.error(err))
